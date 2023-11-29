@@ -14,9 +14,9 @@ class AlbumItem: Hashable {
     let albumTitle: String
     let imageItems: [AlbumDetailItem]
     
-    init(albumUrl: URL, albumTitle: String, imageItems: [AlbumDetailItem]) {
+    init(albumUrl: URL, imageItems: [AlbumDetailItem] = []) {
         self.albumUrl = albumUrl
-        self.albumTitle = albumTitle
+        self.albumTitle = albumUrl.lastPathComponent.displayNicely
         self.imageItems = imageItems
     }
     

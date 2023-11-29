@@ -14,7 +14,7 @@ class AlbumDetailItem: Hashable {
     let thumbnailUrl: URL
     let subitems: [AlbumDetailItem]
     
-    init(photoUrl: URL, thumbnailUrl: URL, subitems: [AlbumDetailItem]) {
+    init(photoUrl: URL, thumbnailUrl: URL, subitems: [AlbumDetailItem] = []) {
         self.photoUrl = photoUrl
         self.thumbnailUrl = thumbnailUrl
         self.subitems = subitems

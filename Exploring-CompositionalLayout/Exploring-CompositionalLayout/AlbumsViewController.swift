@@ -49,17 +49,73 @@ class AlbumsViewController: UIViewController {
     }
     
     private func configureDataSource() {
-        let dataSource = UICollectionViewDiffableDataSource<Section, AlbumItem>(collectionView: albumsCollectionView, cellProvider: { (collectionView: UICollectionView, indexPath: IndexPath, albumItem: AlbumItem) -> UICollectionViewCell? in
+        dataSource = UICollectionViewDiffableDataSource<Section, AlbumItem>(collectionView: albumsCollectionView, cellProvider: { (collectionView: UICollectionView, indexPath: IndexPath, albumItem: AlbumItem) -> UICollectionViewCell? in
             
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AlbumItemCell.reuseIdentifier, for: indexPath) as? AlbumItemCell else { fatalError("can not create new cell") }
             cell.featuredPhotoUrl = albumItem.imageItems[0].thumbnailUrl
             cell.title = albumItem.albumTitle
             return cell
         })
+        
+        let snapshot = snapshotForCurrentState()
+        dataSource.apply(snapshot, animatingDifferences: false)
     }
     
     private func generateLayout() -> UICollectionViewLayout {
+        let layout = UICollectionViewCompositionalLayout { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
+            let isWideView = layoutEnvironment.container.effectiveContentSize.width > 500
+            
+            return self.generateMyAlbumsLayout(isWide: isWideView)
+        }
         
+        return layout
+    }
+    
+    func generateMyAlbumsLayout(isWide: Bool) -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
+        
+        let groupHeight = NSCollectionLayoutDimension.fractionalWidth(isWide ? 0.25 : 0.5)
+        let groupSize = NSCollectionLayoutSize(
+          widthDimension: .fractionalWidth(1.0),
+          heightDimension: groupHeight)
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: isWide ? 4 : 2)
+
+        let section = NSCollectionLayoutSection(group: group)
+
+        return section
+    }
+    
+    private func snapshotForCurrentState() -> NSDiffableDataSourceSnapshot<Section, AlbumItem> {
+        let allAlbums =  albumsInBaseDirectory()
+        let sharingSuggestions = Array(albumsInBaseDirectory().prefix(3))
+        let sharedAlbums = Array(albumsInBaseDirectory().suffix(3))
+        
+        var snapshot = NSDiffableDataSourceSnapshot<Section, AlbumItem>()
+        snapshot.appendSections([Section.featuredAlbum])
+        snapshot.appendItems(sharingSuggestions)
+        
+        snapshot.appendSections([Section.sharedAlbum])
+        snapshot.appendItems(sharedAlbums)
+        
+        snapshot.appendSections([Section.myAlbum])
+        snapshot.appendItems(allAlbums)
+        
+        return snapshot
+    }
+    
+    private func albumsInBaseDirectory() -> [AlbumItem] {
+        guard let baseUrl = baseUrl else { return [] }
+        
+        let fileManager = FileManager.default
+        
+        do {
+            return try fileManager.albumsAtUrl(baseUrl)
+        } catch {
+            print(error)
+            return []
+        }
     }
 
 
