@@ -40,8 +40,9 @@ class AlbumItemCell: UICollectionViewCell {
 extension AlbumItemCell {
     private func configure() {
         contentContainer.translatesAutoresizingMaskIntoConstraints = false
+        
         contentView.addSubview(featuredPhotoView)
-        contentContainer.addSubview(contentContainer)
+        contentView.addSubview(contentContainer)
         
         featuredPhotoView.translatesAutoresizingMaskIntoConstraints = false
         if let featuredPhotoUrl = featuredPhotoUrl {
@@ -69,7 +70,12 @@ extension AlbumItemCell {
             contentContainer.topAnchor.constraint(equalTo: contentView.topAnchor),
             contentContainer.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             
-            titleLabel.leadingAnchor.constraint(equalTo: contentContainer.leadingAnchor),
+            featuredPhotoView.leadingAnchor.constraint(equalTo: contentContainer.leadingAnchor),
+            featuredPhotoView.trailingAnchor.constraint(equalTo: contentContainer.trailingAnchor),
+            featuredPhotoView.topAnchor.constraint(equalTo: contentContainer.topAnchor),
+            featuredPhotoView.bottomAnchor.constraint(equalTo: contentContainer.bottomAnchor),
+            
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
             titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)

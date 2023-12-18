@@ -96,9 +96,9 @@ extension AlbumDetailViewController {
 }
 
 extension AlbumDetailViewController: UICollectionViewDelegate {
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        guard let item = dataSource.itemIdentifier(for: indexPath) else { return }
-//        let photoDetailVC = PhotoDetailViewController(photoURL: item.photoURL)
-//        navigationController?.pushViewController(photoDetailVC, animated: true)
-//    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let item = dataSource.itemIdentifier(for: indexPath) else { return }
+        let photoDetailVC = PhotoDetailViewController(photoURL: item.photoUrl)
+        navigationController?.pushViewController(photoDetailVC, animated: true)
+    }
 }

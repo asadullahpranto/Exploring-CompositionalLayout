@@ -1,8 +1,8 @@
 //
-//  ViewController.swift
+//  AlbumsViewController.swift
 //  Exploring-CompositionalLayout
 //
-//  Created by Safe Tect on 28/11/23.
+//  Created by Bitmorpher 4 on 12/18/23.
 //
 
 import UIKit
@@ -15,9 +15,9 @@ class AlbumsViewController: UIViewController {
     var albumsCollectionView: UICollectionView! = nil
     
     enum Section: String, CaseIterable {
-        case featuredAlbum = "Featured Ablums"
-        case sharedAlbum = "Shared Albums"
-        case myAlbum = "My Albums"
+        case featuredAlbums = "Featured Ablums"
+        case sharedAlbums = "Shared Albums"
+        case myAlbums = "My Albums"
     }
     
     var baseUrl: URL?
@@ -71,14 +71,17 @@ class AlbumsViewController: UIViewController {
     }
     
     func generateMyAlbumsLayout(isWide: Bool) -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .fractionalHeight(1.0)
+        )
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
         
         let groupHeight = NSCollectionLayoutDimension.fractionalWidth(isWide ? 0.25 : 0.5)
         let groupSize = NSCollectionLayoutSize(
-          widthDimension: .fractionalWidth(1.0),
-          heightDimension: groupHeight)
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: groupHeight)
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: isWide ? 4 : 2)
 
         let section = NSCollectionLayoutSection(group: group)
@@ -92,13 +95,13 @@ class AlbumsViewController: UIViewController {
         let sharedAlbums = Array(albumsInBaseDirectory().suffix(3))
         
         var snapshot = NSDiffableDataSourceSnapshot<Section, AlbumItem>()
-        snapshot.appendSections([Section.featuredAlbum])
+        snapshot.appendSections([.featuredAlbums])
         snapshot.appendItems(sharingSuggestions)
         
-        snapshot.appendSections([Section.sharedAlbum])
+        snapshot.appendSections([.sharedAlbums])
         snapshot.appendItems(sharedAlbums)
         
-        snapshot.appendSections([Section.myAlbum])
+        snapshot.appendSections([.myAlbums])
         snapshot.appendItems(allAlbums)
         
         return snapshot
@@ -117,7 +120,6 @@ class AlbumsViewController: UIViewController {
         }
     }
 
-
 }
 
 extension AlbumsViewController: UICollectionViewDelegate {
@@ -127,4 +129,3 @@ extension AlbumsViewController: UICollectionViewDelegate {
         navigationController?.pushViewController(albumDetailVC, animated: true)
     }
 }
-

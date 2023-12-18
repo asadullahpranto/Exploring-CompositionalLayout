@@ -16,18 +16,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        let bundleURL = Bundle.main.url(forResource: "PhotoData", withExtension: "bundle")
-        let bundle = Bundle(url: bundleURL!)
-        let albumURL = URL(fileURLWithPath: bundle!.resourcePath! + "/alta_via_1")
-        let initialViewController = AlbumDetailViewController(withPhotosFromDirectory: albumURL)
-
-        let navigationController = UINavigationController(rootViewController: initialViewController)
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = navigationController
-        self.window = window
-        window.makeKeyAndVisible()
+        
+        guard let bundleURL = Bundle.main.url(
+          forResource: "PhotoData",
+          withExtension: "bundle") else {
+            return
+        }
+        let initialViewController = AlbumsViewController(withAlbumsFromDirectory: bundleURL)
+
+        let navigationController = UINavigationController(rootViewController: initialViewController)
+        self.window = UIWindow(windowScene: windowScene)
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

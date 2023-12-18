@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		25F0C4B22B1631700036D54E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F0C4B12B1631700036D54E /* AppDelegate.swift */; };
 		25F0C4B42B1631700036D54E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F0C4B32B1631700036D54E /* SceneDelegate.swift */; };
-		25F0C4B62B1631700036D54E /* AlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F0C4B52B1631700036D54E /* AlbumsViewController.swift */; };
+		25F0C4B62B1631700036D54E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F0C4B52B1631700036D54E /* ViewController.swift */; };
 		25F0C4B92B1631700036D54E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25F0C4B72B1631700036D54E /* Main.storyboard */; };
 		25F0C4BB2B1631710036D54E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25F0C4BA2B1631710036D54E /* Assets.xcassets */; };
 		25F0C4BE2B1631710036D54E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25F0C4BC2B1631710036D54E /* LaunchScreen.storyboard */; };
@@ -23,13 +23,17 @@
 		2DB0BF0C2B3012420058E0CA /* FeaturedAlbumItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB0BF0B2B3012420058E0CA /* FeaturedAlbumItemCell.swift */; };
 		2DB0BF0E2B30126A0058E0CA /* SharedAlbumItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB0BF0D2B30126A0058E0CA /* SharedAlbumItemCell.swift */; };
 		2DB0C5172B30246A0058E0CA /* PhotoData.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2DB0C5162B30246A0058E0CA /* PhotoData.bundle */; };
+		2DB0C5192B302BD90058E0CA /* AlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB0C5182B302BD90058E0CA /* AlbumsViewController.swift */; };
+		2DB0C51C2B3037430058E0CA /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB0C51B2B3037430058E0CA /* PhotoDetailViewController.swift */; };
+		2DB0C51F2B30379E0058E0CA /* SyncingBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB0C51E2B30379E0058E0CA /* SyncingBadgeView.swift */; };
+		2DB0C5212B3037C40058E0CA /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB0C5202B3037C40058E0CA /* HeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		25F0C4AE2B1631700036D54E /* Exploring-CompositionalLayout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Exploring-CompositionalLayout.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		25F0C4B12B1631700036D54E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25F0C4B32B1631700036D54E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		25F0C4B52B1631700036D54E /* AlbumsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsViewController.swift; sourceTree = "<group>"; };
+		25F0C4B52B1631700036D54E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		25F0C4B82B1631700036D54E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		25F0C4BA2B1631710036D54E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		25F0C4BD2B1631710036D54E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -44,6 +48,10 @@
 		2DB0BF0B2B3012420058E0CA /* FeaturedAlbumItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedAlbumItemCell.swift; sourceTree = "<group>"; };
 		2DB0BF0D2B30126A0058E0CA /* SharedAlbumItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedAlbumItemCell.swift; sourceTree = "<group>"; };
 		2DB0C5162B30246A0058E0CA /* PhotoData.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PhotoData.bundle; sourceTree = "<group>"; };
+		2DB0C5182B302BD90058E0CA /* AlbumsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsViewController.swift; sourceTree = "<group>"; };
+		2DB0C51B2B3037430058E0CA /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
+		2DB0C51E2B30379E0058E0CA /* SyncingBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncingBadgeView.swift; sourceTree = "<group>"; };
+		2DB0C5202B3037C40058E0CA /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,13 +85,16 @@
 		25F0C4B02B1631700036D54E /* Exploring-CompositionalLayout */ = {
 			isa = PBXGroup;
 			children = (
-				25F6922C2B1700FB00A6985B /* Extensions */,
 				25F0C4B12B1631700036D54E /* AppDelegate.swift */,
 				25F0C4B32B1631700036D54E /* SceneDelegate.swift */,
+				25F0C4B52B1631700036D54E /* ViewController.swift */,
 				25F0C4B72B1631700036D54E /* Main.storyboard */,
 				25F0C4BA2B1631710036D54E /* Assets.xcassets */,
 				25F0C4BC2B1631710036D54E /* LaunchScreen.storyboard */,
 				25F0C4BF2B1631710036D54E /* Info.plist */,
+				25F6922C2B1700FB00A6985B /* Extensions */,
+				2DB0C51D2B3037750058E0CA /* SharedViews */,
+				2DB0C51A2B3037260058E0CA /* PhotoDetail */,
 				25F0C8B22B1636B70036D54E /* AlbumDetail */,
 				25F0C8AF2B16354F0036D54E /* Albums */,
 			);
@@ -93,7 +104,7 @@
 		25F0C8AF2B16354F0036D54E /* Albums */ = {
 			isa = PBXGroup;
 			children = (
-				25F0C4B52B1631700036D54E /* AlbumsViewController.swift */,
+				2DB0C5182B302BD90058E0CA /* AlbumsViewController.swift */,
 				25F0C8B52B16394A0036D54E /* AlbumItemCell.swift */,
 				25F0C8B02B16359F0036D54E /* AlbumItem.swift */,
 				2DB0BF0B2B3012420058E0CA /* FeaturedAlbumItemCell.swift */,
@@ -119,6 +130,23 @@
 				25F6927A2B17842800A6985B /* StringProtocol+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2DB0C51A2B3037260058E0CA /* PhotoDetail */ = {
+			isa = PBXGroup;
+			children = (
+				2DB0C51B2B3037430058E0CA /* PhotoDetailViewController.swift */,
+			);
+			path = PhotoDetail;
+			sourceTree = "<group>";
+		};
+		2DB0C51D2B3037750058E0CA /* SharedViews */ = {
+			isa = PBXGroup;
+			children = (
+				2DB0C51E2B30379E0058E0CA /* SyncingBadgeView.swift */,
+				2DB0C5202B3037C40058E0CA /* HeaderView.swift */,
+			);
+			path = SharedViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,7 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DB0BF0C2B3012420058E0CA /* FeaturedAlbumItemCell.swift in Sources */,
-				25F0C4B62B1631700036D54E /* AlbumsViewController.swift in Sources */,
+				25F0C4B62B1631700036D54E /* ViewController.swift in Sources */,
 				25F6922E2B17011A00A6985B /* FileManager+Extensions.swift in Sources */,
 				25F0C8B42B1636CB0036D54E /* AlbumDetailItem.swift in Sources */,
 				2DB0BF0A2B30118C0058E0CA /* PhotoItemCell.swift in Sources */,
@@ -203,8 +231,12 @@
 				2DB0BF0E2B30126A0058E0CA /* SharedAlbumItemCell.swift in Sources */,
 				2DB0BF082B30112D0058E0CA /* AlbumDetailViewController.swift in Sources */,
 				25F0C4B22B1631700036D54E /* AppDelegate.swift in Sources */,
+				2DB0C51C2B3037430058E0CA /* PhotoDetailViewController.swift in Sources */,
 				25F0C8B12B16359F0036D54E /* AlbumItem.swift in Sources */,
+				2DB0C51F2B30379E0058E0CA /* SyncingBadgeView.swift in Sources */,
+				2DB0C5192B302BD90058E0CA /* AlbumsViewController.swift in Sources */,
 				25F0C4B42B1631700036D54E /* SceneDelegate.swift in Sources */,
+				2DB0C5212B3037C40058E0CA /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
