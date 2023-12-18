@@ -12,7 +12,6 @@ class AlbumsViewController: UIViewController {
     static let sectionHeaderElementKind = "section-header-element-kind"
     
     var dataSource: UICollectionViewDiffableDataSource<Section, AlbumItem>! = nil
-    
     var albumsCollectionView: UICollectionView! = nil
     
     enum Section: String, CaseIterable {
@@ -122,10 +121,10 @@ class AlbumsViewController: UIViewController {
 }
 
 extension AlbumsViewController: UICollectionViewDelegate {
-//  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//    guard let item = dataSource.itemIdentifier(for: indexPath) else { return }
-//    let albumDetailVC = AlbumDetailViewController(withPhotosFromDirectory: item.albumURL)
-//    navigationController?.pushViewController(albumDetailVC, animated: true)
-//  }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let item = dataSource.itemIdentifier(for: indexPath) else { return }
+        let albumDetailVC = AlbumDetailViewController(withPhotosFromDirectory: item.albumUrl)
+        navigationController?.pushViewController(albumDetailVC, animated: true)
+    }
 }
 
