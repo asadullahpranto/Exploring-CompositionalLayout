@@ -61,16 +61,58 @@ extension AlbumDetailViewController {
     func generateLayout() -> UICollectionViewLayout {
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
-            heightDimension: .fractionalHeight(1.0))
+            heightDimension: .fractionalWidth(2/3))
         let fullPhotoItem = NSCollectionLayoutItem(layoutSize: itemSize)
         fullPhotoItem.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
+            
+        let mainItemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(2/3),
+            heightDimension: .fractionalHeight(1.0))
+        let mainItem = NSCollectionLayoutItem(layoutSize: mainItemSize)
+        mainItem.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
         
-        let groupSize = NSCollectionLayoutSize(
+        let pairItemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
-            heightDimension: .fractionalWidth(1/3))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: fullPhotoItem, count: 2)
+            heightDimension: .fractionalHeight(0.5))
+        let pairItem = NSCollectionLayoutItem(layoutSize: pairItemSize)
+        pairItem.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
         
-        let section = NSCollectionLayoutSection(group: group)
+        let pairGroupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1/3),
+            heightDimension: .fractionalHeight(1.0))
+        
+        let pairGroup = NSCollectionLayoutGroup.vertical(layoutSize: pairGroupSize, subitem: pairItem, count: 2)
+        
+        let mainWithPairItemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .fractionalWidth(4/9))
+        
+        let mainWithPairGroup = NSCollectionLayoutGroup.horizontal(layoutSize: mainWithPairItemSize, subitems: [mainItem, pairGroup])
+        
+        let tripletSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1/3),
+            heightDimension: .fractionalHeight(1.0))
+        let tripletItem = NSCollectionLayoutItem(layoutSize: tripletSize)
+        tripletItem.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
+        
+        let tripletGroupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .fractionalWidth(2/9))
+        
+        let tripletGroup = NSCollectionLayoutGroup.horizontal(layoutSize: tripletGroupSize, subitems: [tripletItem, tripletItem, tripletItem])
+        
+        let pairWithMainGroup = NSCollectionLayoutGroup.horizontal(
+            layoutSize: NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .fractionalWidth(4/9)),
+            subitems: [pairGroup, mainItem])
+        let nestedGroup = NSCollectionLayoutGroup.vertical(
+            layoutSize: NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .fractionalWidth(16/9)),
+            subitems: [fullPhotoItem, mainWithPairGroup, tripletGroup, pairWithMainGroup])
+        
+        let section = NSCollectionLayoutSection(group: nestedGroup)
         
         let layout = UICollectionViewCompositionalLayout(section: section)
         return layout
